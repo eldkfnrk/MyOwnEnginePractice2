@@ -1,7 +1,7 @@
 #pragma once
 
 //레이어로 지정할 enum을 저장하는 헤더 파일
-namespace mfe {
+namespace mfe::enums {
 	enum class eLayerType{
 		None,
 		BackGround,

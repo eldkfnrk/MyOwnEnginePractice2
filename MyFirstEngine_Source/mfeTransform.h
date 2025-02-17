@@ -25,7 +25,7 @@ namespace mfe {
 		void Render(HDC hdc) override;
 
 		//위치 정보를 설정하고 외부에서 사용하기 위한 Getter Setter
-		void SetPos(Vector2 pos) {
+		void SetPosition(Vector2 pos) {
 			mPosition.x = pos.x;
 			mPosition.y = pos.y;
 		}
@@ -34,8 +34,6 @@ namespace mfe {
 			return mPosition;
 		}
 
-		//int GetX() { return mX; }
-		//int GetY() { return mY; }
 
 		~Transform();
 	};

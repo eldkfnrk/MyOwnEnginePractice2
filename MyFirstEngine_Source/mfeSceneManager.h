@@ -26,7 +26,8 @@ namespace mfe {
 		static Scene* CreateScene(const std::wstring& name) {
 			T* scene = new T();  //T는 만들어지는 씬 클래스 자료형이 들어오게 된다.(템플릿으로 만든 이유이기도 한데 여러 씬들을 만들 것이기 때문에 각 씬 클래스 자료형이 여러 개가 생겨 그것들을 모두 대응하기 위해 사용)
 			scene->SetName(name);
-			scene->Initialize();  //씬마다 씬 안에서 초기화해야 할 작업들이 있을 것이기 때문에 초기화 함수 호출
+			mActiveScene = scene;  //이는 씬을 호출할 때 해당 씬의 오브젝트들도 호출되어야 하는데 이게 없으면 오브젝트들은 씬의 정보가 없어서 호출이 불가능하기에 추가
+			scene->Initialize();  //오브젝트들의 초기화는 여기서 이루어지기에 위의 코드가 없으면 오브젝트들은 씬 정보가 없어 씬을 호출하여도 오브젝트들은 호출되지 않기에 이와 같이 구성되어야 한다.
 
 			//위에서 이름을 지정하였으니 해당 씬을 map에다가 저장한다.
 			mScene.insert(std::make_pair(name, scene));  //make_pair는 pair를 만들어주는 함수(pair는 map의 키,값 쌍을 의미한다.)
@@ -34,23 +35,10 @@ namespace mfe {
 			return scene;
 		}
 
-		static Scene* LoadScene(const std::wstring& name) {
-			if (mActiveScene) {  //현재 씬이 nullptr인 경우에는 작동하면 안 되기에 이를 검사
-				mActiveScene->OnExit();  //씬 전환 시 기존 씬에 필요한 동작을 하는 함수 호출(기존 씬의 함수)
-			}
+		static Scene* LoadScene(const std::wstring& name);  //동작이 복잡한 함수는 헤더 파일보다 cpp 파일에서 정의하는 것이 낫기에 선언과 정의 분리
 
-			//map을 활용할 수 있게 구현된 함수 find는 키 값(Scene의 이름)을 넣어주면 해당되는 map의 주소 값을 반환하는 함수이다.
-			std::map<std::wstring, Scene*>::iterator iter = mScene.find(name);  //반환된 map의 주소를 포인터에 저장
-
-			if (iter == mScene.end()) {  //end는 맨 마지막 요소 뒤에 있는 메모리 칸을 의미한다. 실제 데이터가 있는 곳은 아니고 맨 마지막임을 알려주기 위해 할당된 공간이다.
-				return nullptr;
-			}
-
-			mActiveScene = iter->second;  //first = 키, second = 실제 데이터 를 의미(즉, 씬을 대입한다는 의미)
-			
-			mActiveScene->OnEnter();  //씬이 바뀌면서 필요한 동작을 하는 함수 호출(전환된 씬의 함수)
-
-			return iter->second;  
+		static Scene* GetActiveScene() {  //현재 활성화되고 있는 씬을 반환하는 함수
+			return mActiveScene;
 		}
 	};
 }

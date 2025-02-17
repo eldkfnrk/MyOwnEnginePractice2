@@ -23,6 +23,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeScene.h" />

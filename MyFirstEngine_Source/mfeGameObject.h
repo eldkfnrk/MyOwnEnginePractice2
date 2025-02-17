@@ -41,5 +41,8 @@ namespace mfe {
 		}
 
 		~GameObject();	
+
+	private:
+		void initializeTransform();
 	};
 }

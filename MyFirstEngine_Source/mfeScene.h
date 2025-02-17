@@ -23,6 +23,7 @@ namespace mfe {
 		//씬 하나에 여러 오브젝트들이 있을 것이기 때문에 vector(배열)로 갖고 있게 되는 것이다.
 		//std::vector<GameObject*> mGameObjects;  //Layer 클래스로 옮김
 		std::vector<Layer*> mLayers;  //오브젝트는 레이어가 관리하고 그 레이어들은 씬에서 관리(레이어는 씬을 구성하는 조각)
+		void createLayers();  //private멤버 함수는 구분을 위하여 맨 앞 철자를 소문자로 만든다.
 
 	public:
 		Scene();
@@ -43,7 +44,11 @@ namespace mfe {
 		virtual void OnExit();  //전환하면서 기존 씬에 필요한 동작을 정의
 
 		//void AddGameObject(GameObject* gameObject);  //이 동작도 오브젝트와 관련이 있기에 레이어로 옮긴다.
-		void AddGameObject(GameObject* gameObject, const eLayerType type);  //기존 함수와 달리 어느 레이어에 오브젝트를 추가할 것인지를 인자로 받는다.
+		void AddGameObject(GameObject* gameObject, const enums::eLayerType type);  //기존 함수와 달리 어느 레이어에 오브젝트를 추가할 것인지를 인자로 받는다.
+
+		Layer* GetLayer(const enums::eLayerType type) {
+			return mLayers[(UINT)type];
+		}
 
 		~Scene();
 	};
