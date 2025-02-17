@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{1a761e17-f310-4406-9611-c7dc541e7310}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeEnums.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeTransform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeEntity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeTransform.cpp" />
+  </ItemGroup>
+</Project>
