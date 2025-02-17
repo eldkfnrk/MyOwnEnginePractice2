@@ -16,11 +16,6 @@ namespace mfe {
 	void PlayScene::Initialize()
 	{
 		{
-			//Player* pl = new Player();
-			//Transform* tr = pl->AddComponent<Transform>();
-
-			//tr->SetPos(800, 450);
-
 			bg = new Player();
 			Transform* tr = bg->AddComponent<Transform>();
 

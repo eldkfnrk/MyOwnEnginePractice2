@@ -8,9 +8,6 @@ namespace mfe {
 	class GameObject
 	{
 	private:
-		//게임 오브젝트의 좌표(이것들을 이제 위치 관련 컴포넌트들로 관리)
-		//float mX;
-		//float mY;
 		std::vector<Component*> mComponents;  //사용할 컴포넌트들을 관리할 배열
 
 	public:
