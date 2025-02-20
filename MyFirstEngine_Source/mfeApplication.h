@@ -46,6 +46,10 @@ namespace mfe {
 		void LateUpdate();
 		void Render();
 
+		HDC GetHdc() {
+			return mHdc;
+		}
+
 		~Application();
 	};
 }

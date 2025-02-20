@@ -3,8 +3,9 @@
 
 #include "framework.h"
 #include "Editor_Window.h"
-#include "..//MyFirstEngine_Source//mfeApplication.h"
-#include "..//MyFirstEngine_Window//mfeLodaScenes.h"  //다른 프로젝트에 있는 파일을 #include하는 것이기 때문에 파일의 위치를 정확히 명시해주어야 한다.
+#include "..\\MyFirstEngine_Source\\mfeApplication.h"
+#include "..\\MyFirstEngine_Window\\mfeLoadResources.h"
+#include "..\\MyFirstEngine_Window\\mfeLoadScenes.h"  //다른 프로젝트에 있는 파일을 #include하는 것이기 때문에 파일의 위치를 정확히 명시해주어야 한다.
 
 mfe::Application application;
 
@@ -129,6 +130,11 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    UpdateWindow(hWnd);
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);  //객체 할당
+
+   //load Resources
+   //리소스를 로드하는 것은 무조건 씬을 로드하는 것보다 위에서 진행되어야 하는데 그 이유는 씬을 호출할 때 해당 씬 안에 리소스들이 들어있는 것인데 씬을 먼저 로드해버리면 리소스는
+   //로드가 되지 않은 상태로 씬을 불러오게 되어서 정상적인 게임 플레이 진행하지 못하게 되기 때문에 반드시 리소스 로드가 선행되고 씬 로드가 진행되어야 한다.
+   mfe::LoadResources();
 
    //load Scenes가 호출되어야 하는 위치(mfeLoadScenes.h 파일에서 만든 LoadScenes 함수가 호출되는 위치)
    mfe::LoadScenes();  //생성된 씬들이 생성

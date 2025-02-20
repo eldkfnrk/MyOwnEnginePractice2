@@ -10,9 +10,6 @@ namespace mfe {
 
 	class Component : public Entity
 	{
-	private:
-		GameObject* mOwner;  //컴포넌트들끼리 다른 컴포넌트를 가져와야 할 수도 있기 때문에 컴포넌트들은 항상 자신의 게임 오브젝트 형을 들고 있어주어야 한다.
-
 	public:
 		Component();
 
@@ -26,5 +23,9 @@ namespace mfe {
 		GameObject* GetOwner() { return mOwner; }
 
 		~Component();
+
+	private:
+		GameObject* mOwner;  //컴포넌트들끼리 다른 컴포넌트를 가져와야 할 수도 있기 때문에 컴포넌트들은 항상 자신의 게임 오브젝트 형을 들고 있어주어야 한다.
 	};
+
 }

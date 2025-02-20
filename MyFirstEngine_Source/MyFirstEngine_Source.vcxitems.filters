@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)mfeResource.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)mfeResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeTime.cpp">
       <Filter>Helper</Filter>
     </ClCompile>
@@ -36,11 +34,20 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeApplication.cpp">
       <Filter>High Level Interface</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)mfeLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeResources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeTexture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)mfeResource.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)mfeResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeTime.h">
       <Filter>Helper</Filter>
     </ClInclude>
@@ -77,12 +84,23 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeApplication.h">
       <Filter>High Level Interface</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)mfeLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeEnums.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeObject.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeTexture.h">
+      <Filter>Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeLayer.h">
+      <Filter>Layer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +124,12 @@
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{429f3c75-2d54-47a7-8e63-19fce2098b2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{45676b40-51bb-4333-aae1-7d5cdbe02b2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{7445a167-b1c1-4f90-95a7-14d851d72041}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

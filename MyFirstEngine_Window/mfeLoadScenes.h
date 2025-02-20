@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..//MyFirstEngine_Source//mfeSceneManager.h"  //다른 프로젝트에 있고 참조하고 있는 상태가 아니라 정확한 파일의 위치를 기입해야 한다.
+#include "..\\MyFirstEngine_Source\\mfeSceneManager.h"  //다른 프로젝트에 있고 참조하고 있는 상태가 아니라 정확한 파일의 위치를 기입해야 한다.
 #include "mfePlayScene.h"
 #include "mfeTitleScene.h"
 

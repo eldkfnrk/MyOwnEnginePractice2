@@ -29,6 +29,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeTransform.h" />
   </ItemGroup>
@@ -45,6 +46,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeTransform.cpp" />
   </ItemGroup>
