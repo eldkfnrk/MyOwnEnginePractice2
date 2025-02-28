@@ -135,11 +135,13 @@
     <ClInclude Include="mfeLoadResources.h" />
     <ClInclude Include="mfeLoadScenes.h" />
     <ClInclude Include="mfePlayer.h" />
+    <ClInclude Include="mfePlayerScript.h" />
     <ClInclude Include="mfePlayScene.h" />
     <ClInclude Include="mfeTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mfePlayer.cpp" />
+    <ClCompile Include="mfePlayerScript.cpp" />
     <ClCompile Include="mfePlayScene.cpp" />
     <ClCompile Include="mfeTitleScene.cpp" />
   </ItemGroup>

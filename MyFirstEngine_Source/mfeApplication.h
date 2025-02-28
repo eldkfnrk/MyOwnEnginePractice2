@@ -7,17 +7,39 @@ namespace mfe {
 	//윈도우의 관련된 작업만 하는 역할 수행
 	class Application
 	{
+	public:
+		Application();
+
+		void Initialize(HWND hwnd, UINT width, UINT height);
+		void Run();
+		void Update();
+		void LateUpdate();
+		void Render();
+
+		HDC GetHdc() {
+			return mHdc;
+		}
+
+		UINT GetWidth() {
+			return mWidth;
+		}
+
+		UINT GetHeight() {
+			return mHeight;
+		}
+
+		~Application();
 	private:
 		HWND mHwnd;
 		HDC mHdc;
-		
+
 		HDC mBackHdc;
 		HBITMAP mBackBitmap;
 
 		//화면 크기(해상도)
-		UINT mWidth; 
-		UINT mHeight;  
-		
+		UINT mWidth;
+		UINT mHeight;
+
 		//GameObject player;
 
 		//게임 오브젝트에 관한 동적 할당
@@ -36,20 +58,5 @@ namespace mfe {
 		void adjustWindowRect(HWND hwnd, UINT width, UINT height);
 		void createBuffer(UINT width, UINT height);
 		void initializeEtc();
-
-	public:
-		Application();
-
-		void Initialize(HWND hwnd, UINT width, UINT height);
-		void Run();
-		void Update();
-		void LateUpdate();
-		void Render();
-
-		HDC GetHdc() {
-			return mHdc;
-		}
-
-		~Application();
 	};
 }

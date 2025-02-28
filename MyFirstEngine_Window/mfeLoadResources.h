@@ -6,6 +6,16 @@
 namespace mfe {
 	void LoadResources() {
 		//해당 경로의 리소스를 로드(첫 번째 인자는 불러오는 리소스에게 붙일 이름)
-		Resources::Load<graphics::Texture>(L"BG", L"D:\\GameEnginePractice\\MyOwnEnginePractice-master\\Resources\\CloudOcean.png");
+		//Resources::Load<graphics::Texture>(L"BG", L"..\\Resources\\CloudOcean.png");
+		Resources::Load<graphics::Texture>(L"Map", L"..\\Resources\\img\\map\\map_pure.png");
+		Resources::Load<graphics::Texture>(L"PackMan0", L"..\\Resources\\img\\pacman\\0.png");
+		Resources::Load<graphics::Texture>(L"PackMan1", L"..\\Resources\\img\\pacman\\1.png");
+		Resources::Load<graphics::Texture>(L"PackMan2", L"..\\Resources\\img\\pacman\\2.png");
 	}
 }
+
+//이번에 추가할 내용
+
+//1. 카메라
+//2. 크기 조정
+//3. 스크립트

@@ -1,6 +1,7 @@
 #include "mfeSpriteRenderer.h"
 #include "mfeGameObject.h"
 #include "mfeTransform.h"
+#include "mfeRenderer.h"
 
 namespace mfe {
 	//이 함수의 정의한 내용은 텍스쳐 클래스의 Load함수에 복사(여기의 ImageLoad함수 역할을 그곳의 Load함수가 대신하게 된다.)
@@ -12,7 +13,7 @@ namespace mfe {
 	//}
 
 	SpriteRenderer::SpriteRenderer()
-		: Component(), mTexture(nullptr), mSize(Vector2::One)
+		: Component(enums::eComponentType::SpriteRenderer), mTexture(nullptr), mSize(Vector2::One)
 	{
 
 	}
@@ -34,25 +35,13 @@ namespace mfe {
 
 	void SpriteRenderer::Render(HDC hdc)
 	{
-		//Transform* tr = GetOwner()->GetComponent<Transform>();
-		//Vector2 pos = tr->GetPosition();
-		//
-		//Gdiplus::Graphics graphics(hdc);
-		//graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
-
-		//화면에 리소스를 활용하여 출력
-		//위의 동작은 png파일 리소스를 활용하는 코드로 작성하는 것이다.
-		//화면에 출력하는 방법에는 두 가지가 있는데 첫 번째는 리소스 관리하는 클래스에서 출력하는 것 그리고 두 번째는 스프라이트렌더러에서 출력하는 것이다.
-		//그러나 출력에 있어서는 위치 정보를 가지는 트랜스펌 컴포넌트가 반드시 필요한데 리소스 관리하는 클래스에는 컴포넌트를 굳이 추가해서 리소스마다 컴포넌트를 받을 필요도 없고
-		//그렇게 하는 것보다 이 컴포넌트에서 진행하는 것이 조금 더 효율적으로 진행할 수 있기에 이렇게 진행하는 것이다.
-		//그리고 리소스는 리소스만을 관리하고 출력과 같은 동작들은 컴포넌트에서 하는 것이 구분도 되고 진행하는데 헷갈리지 않고 원할하게 돌아갈 수 있다.
-
 		if (mTexture == nullptr) {  //만약 텍스쳐 리소스가 없다면(텍스쳐 세팅 필요)
 			assert(false);  //오류 메시지 박스를 띄워주고 강제 종료(assert가 호출되면 프로그램 종료와 동시에 호출된 함수의 위치로 이동시켜 주기 때문에 무슨 문제인지 파악하고 바로 해결해주어야 한다.)
 		}
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		pos = renderer::mainCamera->CalculatePosition(pos);  //오브젝트의 위치를 카메라의 위치로 계산해서 변경
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp) {
 			//이 함수는 이미지의 특정 색을 투명하게 적용시켜 화면에 출력해주는 함수이다.

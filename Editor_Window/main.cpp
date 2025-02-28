@@ -113,8 +113,12 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; 
 
-   const UINT width = 1600;
-   const UINT height = 900;
+   //const UINT width = 1600;
+   //const UINT height = 900;
+
+   //윈도우 크기를 변경(pacman 맵의 크기의 세 배로 조정)
+   const UINT width = 672;
+   const UINT height = 846;
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr); 

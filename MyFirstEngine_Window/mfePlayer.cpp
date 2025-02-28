@@ -26,13 +26,6 @@ namespace mfe {
 	void Player::Render(HDC hdc)
 	{
 		GameObject::Render(hdc);
-
-		if (Input::GetKeyDown(eKeyCode::Right)) {
-			Transform* tr = GetComponent<Transform>();
-			Vector2 pos = tr->GetPosition();
-			pos.x += 100.0f * Time::DeltaTime();
-			tr->SetPosition(pos);
-		}
 	}
 
 	Player::~Player()

@@ -11,7 +11,7 @@ namespace mfe {
 	class Component : public Entity
 	{
 	public:
-		Component();
+		Component(enums::eComponentType type);
 
 		virtual void Initialize();
 		virtual void Update();
@@ -22,10 +22,14 @@ namespace mfe {
 		void SetOwner(GameObject* owner) { mOwner = owner; }
 		GameObject* GetOwner() { return mOwner; }
 
+		//컴포넌트 타입을 가져오는 Get함수
+		enums::eComponentType GetType() { return mType; }
+
 		~Component();
 
 	private:
 		GameObject* mOwner;  //컴포넌트들끼리 다른 컴포넌트를 가져와야 할 수도 있기 때문에 컴포넌트들은 항상 자신의 게임 오브젝트 형을 들고 있어주어야 한다.
+		enums::eComponentType mType;  ////컴포넌트 클래스도 컴포넌트의 타입을 모두 가지고 있어야 한다.(그래야만 컴포넌트의 타입을 나중에 알아야 할 때 알 수 있기 때문이다.)
 	};
 
 }

@@ -5,7 +5,7 @@ namespace mfe {
 	class PlayScene : public Scene
 	{
 	private: 
-		class Player* bg;  //해당 씬의 플레이어(전방 선언)
+		class Player* mPlayer;  //해당 씬의 플레이어(전방 선언)
 
 	public:
 		PlayScene();

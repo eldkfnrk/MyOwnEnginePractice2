@@ -1,7 +1,7 @@
 #include "mfeComponent.h"
 
 namespace mfe {
-	Component::Component() {
+	Component::Component(enums::eComponentType type) : mType(type) {
 
 	}
 

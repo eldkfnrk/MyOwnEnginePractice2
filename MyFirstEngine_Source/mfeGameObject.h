@@ -7,9 +7,6 @@ namespace mfe {
 	//기존 클래스의 계층 구조에서 컴포넌트 구조로 변경하기 위해 클래스를 새로 설계
 	class GameObject
 	{
-	private:
-		std::vector<Component*> mComponents;  //사용할 컴포넌트들을 관리할 배열
-
 	public:
 		GameObject();
 
@@ -23,7 +20,9 @@ namespace mfe {
 			T* comp = new T();
 			comp->Initialize();
 			comp->SetOwner(this);  //this는 객체 자신을 의미한다. 여기서는 이 클래스의 객체가 될 것이다.
-			mComponents.push_back(comp);  //컴포넌트를 컴포넌트를 관리할 배열에 추가
+			
+			mComponents[(UINT)comp->GetType()] = comp;  //컴포넌트 타입에 맞는 숫자의 인덱스에 컴포넌트를 넣겠다는 의미
+			//mComponents.push_back(comp);  //컴포넌트를 컴포넌트를 관리할 배열에 추가(위의 구문이 추가되면 이와 같이 push_back의 일을 대신하게 된다.)
 
 			return comp;
 		}
@@ -43,6 +42,8 @@ namespace mfe {
 		~GameObject();	
 
 	private:
+		std::vector<Component*> mComponents;  //사용할 컴포넌트들을 관리할 배열
+		
 		void initializeTransform();
 	};
 }

@@ -1,7 +1,7 @@
 #include "mfeTransform.h"
 
 namespace mfe {
-	Transform::Transform()
+	Transform::Transform() : Component(enums::eComponentType::Transform)
 	{
 
 	}
